@@ -1,0 +1,4 @@
+package vn.plusplus.used.car.model;
+
+public class Car {
+}
