@@ -15,6 +15,25 @@ public class Car {
     private Integer odo;
     private Integer numberOfSeats;
 
+    public Car() {
+    }
+
+    public Car(String name, String image, Float price, String description, String sellerPhone, String maker, Integer year, String status, String fuel, String color, String models, Integer odo, Integer numberOfSeats) {
+        Name = name;
+        this.image = image;
+        this.price = price;
+        this.description = description;
+        this.sellerPhone = sellerPhone;
+        this.maker = maker;
+        this.year = year;
+        this.status = status;
+        this.fuel = fuel;
+        this.color = color;
+        this.models = models;
+        this.odo = odo;
+        this.numberOfSeats = numberOfSeats;
+    }
+
     public String getName() {
         return Name;
     }
@@ -116,22 +135,6 @@ public class Car {
     }
 
     public void setNumberOfSeats(Integer numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
-    }
-
-    public Car(String name, String image, Float price, String description, String sellerPhone, String maker, Integer year, String status, String fuel, String color, String models, Integer odo, Integer numberOfSeats) {
-        Name = name;
-        this.image = image;
-        this.price = price;
-        this.description = description;
-        this.sellerPhone = sellerPhone;
-        this.maker = maker;
-        this.year = year;
-        this.status = status;
-        this.fuel = fuel;
-        this.color = color;
-        this.models = models;
-        this.odo = odo;
         this.numberOfSeats = numberOfSeats;
     }
 }
