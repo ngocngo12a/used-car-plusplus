@@ -1,5 +1,10 @@
 package vn.plusplus.used.car.interfaces;
 
-public interface CarInterface {
+import vn.plusplus.used.car.model.Car;
 
+import java.util.List;
+
+public interface CarInterface {
+    void saveCarToDatabase(List<Car> carList);
+    List<Car> readAllCarFromDatabase(String filePath);
 }
