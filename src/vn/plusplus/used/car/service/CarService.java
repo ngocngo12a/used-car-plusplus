@@ -15,4 +15,19 @@ public class CarService implements CarInterface {
     public List<Car> readAllCarFromDatabase(String filePath) {
         return null;
     }
+
+    @Override
+    public List<Car> findCarByPrice(Float priceFrom, Float priceTo) {
+        return null;
+    }
+
+    @Override
+    public List<Car> findCarByMakerOrderByPriceDesc(String maker) {
+        return null;
+    }
+
+    @Override
+    public List<Car> findCarByYear(Float year) {
+        return null;
+    }
 }
