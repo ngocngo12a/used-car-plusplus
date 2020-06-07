@@ -16,6 +16,7 @@ import java.util.List;
 public class CarParser extends ParserInterface <Car>{
     private static List<String> linkArray=new ArrayList<>();
     private static List<Car> carModel=new ArrayList<>();
+    private static ParserInterface carParser=new ParserInterface();
     private Document getHtmlContent(String url) {
         Document pageHtml;
         try {
@@ -112,6 +113,15 @@ public class CarParser extends ParserInterface <Car>{
             linkArray.add("http://www.xe.chotot.com/" + linkFilm);
         }
         return linkArray;
+    }
+    public void parserAllcar(){
+        for (int i = 1; i <1 ; i++) {
+            String url = "https://xe.chotot.com/toan-quoc/mua-ban-oto?page="+i;
+            linkArray = carParser.parserListLink(url);
+            for (String link : linkArray) {
+                Car carModel = carParser.parserDetail(link);// lấy từng thuộc tính trong link
+            }
+        }
     }
 
 }
