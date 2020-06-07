@@ -11,6 +11,7 @@ public class Car {
     private String status;
     private String fuel;
     private String color;
+    private String design;
     private String models;
     private Integer odo;
     private Integer numberOfSeats;
