@@ -5,7 +5,7 @@ import vn.plusplus.used.car.model.Car;
 import java.util.List;
 
 public abstract class CarInterface {
-    public abstract void saveCarToDatabase(List<Car> carList);
+    public abstract void writeCarToFile(Car car);
     public abstract List<Car> readAllCarFromDatabase(String filePath);
     public abstract List<Car> findCarByPrice(Float priceFrom, Float priceTo);
     public abstract List<Car> findCarByMakerOrderByPriceDesc(String maker);
