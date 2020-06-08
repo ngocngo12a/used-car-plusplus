@@ -15,7 +15,6 @@ import java.util.List;
 public class CarParser extends ParserInterface<Car> {
     private static List<String> linkArray = new ArrayList<>();
     private static List<Car> carModel = new ArrayList<>();
-    private static ParserInterface carParser = new ParserInterface();
     private static CarService carService=new CarService();
 
     private Document getHtmlContent(String url) {
@@ -91,13 +90,13 @@ public class CarParser extends ParserInterface<Car> {
             result.setFuel(fuel);
             result.setMaker(maker);
             result.setModels(models);
-            result.setOdo(odo);
+            result.setOdo(Integer.valueOf(odo));
             result.setPrice(Float.parseFloat(price));
-            result.getNumberOfSeats(Integer.parseInt(numberOfSeats));
+            result.setNumberOfSeats(Integer.valueOf(numberOfSeats));
 
         }
 
-        return null;
+        return result;
     }
 
     @Override
@@ -116,17 +115,15 @@ public class CarParser extends ParserInterface<Car> {
         return linkArray;
     }
 
-    public void parserAllcar() {
-        Car car=new Car();
+    public List<Car> parserAllcar(String url) {
+        List<Car> carList =new ArrayList<>();
         for (int i = 1; i < 1; i++) {
-            String url = "https://xe.chotot.com/toan-quoc/mua-ban-oto?page=" + i;
-            linkArray = carParser.parserListLink(url);
+            linkArray = parserListLink(url);
             for (String link : linkArray) {
-                Car carModel = carParser.parserDetail(link);// lấy từng thuộc tính trong link
-                carService.writeCarToFile(carModel);
-                System.out.println(car.getName());
+                Car carModel = parserDetail(link);// lấy từng thuộc tính trong link
+                carList.add(carModel);
             }
         }
+        return carList;
     }
-
 }
