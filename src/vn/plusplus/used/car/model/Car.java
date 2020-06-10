@@ -20,22 +20,20 @@ public class Car {
     }
     @Override
     public String toString() {
-        return "Car{" +
-                "Name='" + Name + '\'' +
-                ", image='" + image + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", sellerPhone='" + sellerPhone + '\'' +
-                ", maker='" + maker + '\'' +
-                ", year=" + year +
-                ", status='" + status + '\'' +
-                ", fuel='" + fuel + '\'' +
-                ", color='" + color + '\'' +
-                ", design='" + design + '\'' +
-                ", models='" + models + '\'' +
-                ", odo=" + odo +
-                ", numberOfSeats=" + numberOfSeats +
-                '}';
+        return "Name=" + Name + "###" +
+                "image=" + image + "###" +
+                "price=" + price +
+                "description=" + description + "###" +
+                "sellerPhone=" + sellerPhone + "###" +
+                "maker=" + maker + "###" +
+                "year=" + year + "###" +
+                "status=" + status + "###" +
+                "fuel=" + fuel + "###" +
+                "color=" + color + "###" +
+                "models=" + models + "###" +
+                "odo=" + odo +
+                "numberOfSeats=" + numberOfSeats
+                ;
     }
 
     public Car(String name, String image, Float price, String description, String sellerPhone, String maker, Integer year, String status, String fuel, String color, String models, Integer odo, Integer numberOfSeats) {
