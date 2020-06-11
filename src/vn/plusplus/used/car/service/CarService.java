@@ -36,10 +36,11 @@ public class CarService implements CarInterface {
     }
 
     @Override
-    public List<Car> readAllCarFromDatabase(String filePath) {
+    public List<Car> readAllCarFromDatabase() {
         List<Car> carList = new ArrayList<>();
         String line ="";
         try {
+            String filePath = "";
             FileReader f= new FileReader(filePath);
             BufferedReader file = new BufferedReader(f);
                 while(true) {
@@ -75,8 +76,7 @@ public class CarService implements CarInterface {
     public List<Car> findCarByPrice(Float priceFrom, Float priceTo) {
         List<Car> cars = new ArrayList<>();
         List<Car> car = new ArrayList<>();
-        String filePath = null;
-        cars = readAllCarFromDatabase(filePath);
+        cars = readAllCarFromDatabase();
         for (Car item: cars
              ) {
             if (item.getPrice()>= priceFrom && item.getPrice()<= priceTo ){
@@ -95,8 +95,7 @@ public class CarService implements CarInterface {
     public List<Car> findCarByYear(Float year) {
             List<Car> cars = new ArrayList<>();
             List<Car> car = new ArrayList<>();
-            String filePath = null;
-            cars = readAllCarFromDatabase(filePath);
+            cars = readAllCarFromDatabase();
             for(Car item : cars){
                 if(item.getYear().equals(Integer.valueOf(String.valueOf(year)))){
                     car.add(item);

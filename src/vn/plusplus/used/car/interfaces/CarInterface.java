@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CarInterface {
     void writeCarToFile(Car car);
-    List<Car> readAllCarFromDatabase(String filePath);
+    List<Car> readAllCarFromDatabase();
     List<Car> findCarByPrice(Float priceFrom, Float priceTo);
     List<Car> findCarByMakerOrderByPriceDesc(String maker);
     List<Car> findCarByYear(Float year);
