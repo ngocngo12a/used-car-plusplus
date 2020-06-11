@@ -93,6 +93,15 @@ public class CarService implements CarInterface {
 
     @Override
     public List<Car> findCarByYear(Float year) {
-        return null;
+            List<Car> cars = new ArrayList<>();
+            List<Car> car = new ArrayList<>();
+            String filePath = null;
+            cars = readAllCarFromDatabase(filePath);
+            for(Car item : cars){
+                if(item.getYear().equals(Integer.valueOf(String.valueOf(year)))){
+                    car.add(item);
+                }
+            }
+            return car;
     }
 }
