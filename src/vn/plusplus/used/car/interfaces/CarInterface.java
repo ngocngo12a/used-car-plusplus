@@ -9,5 +9,7 @@ public interface CarInterface {
     List<Car> readAllCarFromDatabase();
     List<Car> findCarByPrice(Float priceFrom, Float priceTo);
     List<Car> findCarByMakerOrderByPriceDesc(String maker);
-    List<Car> findCarByYear(Float year);
+    List<Car> findCarByYear(Integer year);
+
+    void displayCar(List<Car> cars);
 }

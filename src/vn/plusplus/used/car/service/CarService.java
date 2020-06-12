@@ -46,31 +46,32 @@ public class CarService implements CarInterface {
         List<Car> carList = new ArrayList<>();
         String line ="";
         try {
-            String filePath = "";
+            File file = new File("data/Car.txt");
+            String filePath = file.getAbsolutePath();
             FileReader f= new FileReader(filePath);
-            BufferedReader file = new BufferedReader(f);
-                while(true) {
-                    line=file.readLine();
-                    if (line == null){
-                        break;
-                    }
-                    String[] str = line.split("###");
-                        Car car = new Car();
-                        car.setName(str[0].replace("Name=",""));
-                        car.setImage(str[1].replace("image=",""));
-                        car.setPrice((float) Integer.parseInt(str[2].replace("price=","")));
-                        car.setDescription(str[3].replace("description=",""));
-                        car.setSellerPhone(str[4].replace("sellerPhone=",""));
-                        car.setMaker(str[5].replace("maker=",""));
-                        car.setYear(Integer.parseInt(str[6].replace("year=","")));
-                        car.setStatus(str[7].replace("status=",""));
-                        car.setFuel(str[8].replace("fuel=",""));
-                        car.setColor(str[9].replace("color=",""));
-                        car.setModels(str[10].replace("models=",""));
-                        car.setOdo(Integer.parseInt(str[11].replace("odo=","")));
-                        car.setNumberOfSeats(Integer.parseInt(str[12].replace("numberOfSeats=","")));
-                        carList.add(car);
+            BufferedReader br = new BufferedReader(f);
+            while(true) {
+                line = br.readLine();
+                if (line == null){
+                    break;
                 }
+                String[] str = line.split("###");
+                Car car = new Car();
+                car.setName(str[0].replace("Name=",""));
+                car.setImage(str[1].replace("image=",""));
+                car.setPrice((float) Integer.parseInt(str[2].replace("price=","")));
+                car.setDescription(str[3].replace("description=",""));
+                car.setSellerPhone(str[4].replace("sellerPhone=",""));
+                car.setMaker(str[5].replace("maker=",""));
+                car.setYear(Integer.parseInt(str[6].replace("year=","")));
+                car.setStatus(str[7].replace("status=",""));
+                car.setFuel(str[8].replace("fuel=",""));
+                car.setColor(str[9].replace("color=",""));
+                car.setModels(str[10].replace("models=",""));
+                car.setOdo(Integer.parseInt(str[11].replace("odo=","")));
+                car.setNumberOfSeats(Integer.parseInt(str[12].replace("numberOfSeats=","")));
+                carList.add(car);
+            }
 
         } catch (Exception e) {
             System.out.println("Lỗi :"+e);
@@ -98,15 +99,20 @@ public class CarService implements CarInterface {
     }
 
     @Override
-    public List<Car> findCarByYear(Float year) {
+    public List<Car> findCarByYear(Integer year) {
             List<Car> cars = new ArrayList<>();
             List<Car> car = new ArrayList<>();
             cars = readAllCarFromDatabase();
             for(Car item : cars){
-                if(item.getYear().equals(Integer.valueOf(String.valueOf(year)))){
+                if(item.getYear().equals(year)){
                     car.add(item);
                 }
             }
             return car;
+    }
+
+    @Override
+    public void displayCar(List<Car> cars) {
+
     }
 }
