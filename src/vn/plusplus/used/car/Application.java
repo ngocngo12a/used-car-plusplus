@@ -18,7 +18,6 @@ public class Application {
 
         CarParser carParser = new CarParser();
         CarService carService = new CarService();
-
         switch (option){
             case 1:
                 System.out.println("Nhap vao link muon thu thap: ");

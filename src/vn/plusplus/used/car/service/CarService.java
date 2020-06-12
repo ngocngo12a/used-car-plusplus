@@ -5,6 +5,8 @@ import vn.plusplus.used.car.model.Car;
 import vn.plusplus.used.car.service.CarParser;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,22 +17,26 @@ public class CarService implements CarInterface {
     public void writeCarToFile(Car car) {
         // Ghi File
         try {
+            FileWriter fileWriter = null;
+            BufferedWriter br = null;
+            File file = new File("data/Car.txt");
 
-            File f= new File("E:\\javacore\\used-car-plusplus\\src\\vn\\plusplus\\used\\car\\data\\Car.txt");
-            if(!f.exists()) {
-                f.createNewFile();
+            if(!file.exists()) {
+
+                //Get current path of project in local computer
+                Path currentRelativePath = Paths.get("");
+                String s = currentRelativePath.toAbsolutePath().toString();
+
+                //Create new file answer.txt with absoluatePath
+                fileWriter = new FileWriter(s +"/data/Car.txt");
+                br = new BufferedWriter(fileWriter);
+                file.createNewFile();
+
+                br.write(car.toString());
+                br.newLine();
             }
-            FileWriter file= new FileWriter(f);
-            BufferedWriter out= new BufferedWriter(file);
-
-                out.write(car.toString());
-                out.newLine();
-
-
-            out.close();
-            System.out.println(f.getAbsolutePath());
         } catch (Exception e) {
-
+            System.out.println("Lỗi ghi file");
         }
 
     }
